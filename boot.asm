@@ -1,7 +1,7 @@
 ; boot.asm: The bootloader to boot the operating system with grub.
 [bits 32] ; We are in 32 bit mode
 global start ; Start's the operating system, we call it in the linker script.
-extern _kernel_main ; This is in the C++ file for the main loop.
+extern kernel_main ; This is in the C++ file for the main loop.
 
 section .mbHeader
 
@@ -21,4 +21,4 @@ MultiBootHeader:
 
 start:
     push ebx ; This loads the grub structure.
-    call _kernel_main
+    call kernel_main

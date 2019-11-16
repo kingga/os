@@ -58,7 +58,7 @@ echo "Building the bootloader."
 nasm -f elf boot.asm -o build/boot.o
 
 echo "Building the kernel."
-$GPP_COMPILER_PATH -c kernel.cpp -o build/kernel.o -ffreestanding -fno-exceptions -fno-rtti
+$GPP_COMPILER_PATH -c kernel.cpp -o build/kernel.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
 
 echo "Linking the kernel and bootloader."
 $GCC_COMPILER_PATH build/boot.o build/kernel.o -T linker.ld -o build/kern -nostdlib -nodefaultlibs -lgcc
